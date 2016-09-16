@@ -1,0 +1,17 @@
+<!-- 健身类 -->
+<div class="contain" ng-controller="bookStoreJianshenCtrl">
+	<ul class="list-inline" ng-controller="cartCtrl">
+		<li ng-repeat="item in books | showItBooks:nowpageNum">
+			<a href="" onfocus="this.blur()">
+			<img src="{{item.img}}" alt="">
+			<h4>{{item.title}}</h3>
+			<h3>{{item.price}}￥</h3>
+			<a class="btn btn-primary" href="#/cart" ng-click="addBookTocart(item.id,item.img,item.title,item.price)">购买</a>
+			<a class="btn btn-danger" ng-click="addBookTocart(item.id,item.img,item.title,item.price)">购物车</a>
+			</a>
+		</li>
+	</ul>
+	<div class="btn-group pull-right">
+		<a ng-repeat="item in pageNum()" ng-click="clickChangePageNum(item)" class="btn btn-default" ng-class="clickChangePageColor(item)">{{item}}</a>
+	</div>
+</div>

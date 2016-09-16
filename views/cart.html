@@ -1,0 +1,57 @@
+<!-- 购物车 -->
+<!-- 购物车为空时候的情况 -->
+<div class="panel panel-warning" ng-show="getBooksCounts()==0">
+	<div class="panel-heading">
+		购物车列表
+	</div>
+	<div class="panel-body">
+		暂无商品，快去选购吧。
+	</div>
+</div>
+<!-- 购物车不为空的时候情况 -->
+<div class="panel panel-success" ng-show="getBooksCounts()!=0">
+	<div class="panel-heading">
+		购物车列表
+	</div>
+	<div class="panel-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>物品</th>
+					<th>名称</th>
+					<th>价格</th>
+					<th>数量</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in getCart()">
+					<td>
+						<img src="{{item.img}}" alt="" width="80px">
+					</td>
+					<td>
+						<span>
+							{{item.title}}
+						</span>
+					</td>
+					<td>
+						<cite>
+							{{item.price}}￥
+						</cite>
+					</td>
+					<td>
+						<a class="btn btn-default" ng-click="deleteBookFromCart(item.id)">-</a>
+						<cite>{{item.count}}</cite>
+						<a class="btn btn-default" ng-click="addBookTocart(item.id,item.img,item.title,item.price)">+</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-foot pull-right" style="margin-right:2rem">
+		<span style="margin-right:1rem">
+			<span>共计：</span>
+			<strong><cite>{{getSumPrice()}}</cite></strong>
+		</span>
+		<a href="" class="btn btn-danger">结算</a>
+	</div>
+</div>

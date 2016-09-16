@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="bookStore">
+	<head>
+		<meta charset="UTF-8">
+		<title>bookStore</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap-theme.min.css"/>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/index.css">
+		<script src="angular.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bookStore.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/itBooksCtrl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/shenghuoBooksCtrl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jianshenCtrl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/lvyouCtrl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/cartCtrl.js" type="text/javascript" charset="utf-8"></script>
+		<script src="angular-route.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="types" ng-controller="cartCtrl"> 
+			<!-- 导航栏 -->
+			<nav class="navbar navbar-inverse">
+				<div class="navbar-head">
+					<a href="#/itBooks" class="navbar-brand">BookStore</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="#/itBooks">IT</a></li>
+					<li><a href="#/shenghuoBooks">生活</a></li>
+					<li><a href="#/jianshenBooks">健身</a></li>
+					<li><a href="#/lvyouBooks">旅游</a></li>
+				</ul>
+				<div class="pull-right">
+					<a href="#/cart" class="btn btn-default navbar-btn">
+						<b>购物车：</b>
+						{{getBooksCounts()}}
+						<b>件</b>
+					</a>
+				</div>
+			</nav>
+			<!-- 内容试图 -->
+			<ng-view/>
+		</div>
+	</body>
+</html>
